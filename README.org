@@ -1,0 +1,15 @@
+# k8s-execise
+exec-1: rolling updae
+step by step:
+  1. create old rc kubia:v1
+   #+begin_src sh
+    k apply -f rc-1.yml
+   #+end_src
+  2. create service ~k apply -f service.yaml~
+  3. now you can visit the serive: curl ${minikube ip}:32201
+  4. create new rc kubia:v2
+     #+begin_src sh
+k apply -f rc-2.yml
+     #+end_src
+  5. now when you visit servie, it may come from v1 or v2
+  6. delete rc-1, the all serive go to v2
